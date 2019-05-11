@@ -82,18 +82,21 @@ int		check_tetri(char **tab)
 		return (-1);
 	while (tab[i] != 0)
 	{
-		if (i > 25)
+		if (i > 25 || tab[i] == NULL)
+		{
+			free(treeminos);
 			return (-1);
-		if (tab[i] == NULL)
-			return (-1);
+		}
 		if (tab[i + 1] != 0)
-			tab[i] = ft_strjoin(tab[i], "\n");
-		if (check_ifvalid(tab[i]) == -1)
+			tab[i] = ft_strjoinfree(tab[i], "\n", 0);
+		if (check_ifvalid(tab[i]) == -1 || checkintree(treeminos, ft_strtrimc(tab[i], '.')) == 0)
+		{
+			free(treeminos);
 			return (-1);
-		if (checkintree(treeminos, ft_strtrimc(tab[i], '.')) == 0)
-			return (-1);
+		}
 		i++;
 	}
+	free(treeminos);
 	return (1);
 }
 
@@ -105,11 +108,12 @@ int		check_file(int fd, char ***tab)
 
 	i = 0;
 	line = "";
-	file = "";
+	if ((file = ft_strnew(0)) == NULL)
+		return (-1);
 	while (get_next_line(fd, &line) == 1)
 	{
-		file = ft_strjoin(file, line);
-		file = ft_strjoin(file, "\n");
+		file = ft_strjoinfree(file, line, 2);
+		file = ft_strjoinfree(file, "\n", 0);
 		i++;
 	}
 	if ((*tab = ft_strstrsplit(file, "\n\n")) == NULL)
@@ -117,5 +121,6 @@ int		check_file(int fd, char ***tab)
 	if (check_tetri(*tab) == -1)
 		return (-1);
 	*tab = transform_tab(*tab);
+	free(file);
 	return (1);
 }

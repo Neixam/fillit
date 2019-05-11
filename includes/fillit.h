@@ -28,6 +28,7 @@ char			*ft_cut(char *str);
 char			*ft_cut(char *str);
 char			*ft_creat_str_index(char **tab);
 char			*ft_strtrimc(char *str, char c);
+char			*ft_strjoinfree(char *s1, char *s2, int trool);
 char			**creatlang(void);
 void			ft_print(int *fldgrd);
 void			ft_reinit_tab(int *tab);

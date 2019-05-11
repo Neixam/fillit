@@ -37,3 +37,16 @@ char	*ft_strtrimc(char *str, char c)
 	trimc[index_f] = '\0';
 	return (trimc);
 }
+
+char	*ft_strjoinfree(char *s1, char *s2, int trool)
+{
+	char	*ret;
+
+	if ((ret = ft_strjoin(s1, s2)) == NULL)
+		return (NULL);
+	if (trool % 2 == 0)
+		free(s1);
+	if (trool > 0)
+		free(s2);
+	return (ret);
+}
