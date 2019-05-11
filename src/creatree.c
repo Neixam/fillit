@@ -17,7 +17,10 @@ t_tree	*creatree(char letter)
 	t_tree	*treeminos;
 
 	if (!(treeminos = (t_tree*)malloc(sizeof(t_tree))))
+	{
+		free(treeminos);
 		return (NULL);
+	}
 	treeminos->next = NULL;
 	treeminos->bro = NULL;
 	treeminos->letter = letter;
@@ -42,15 +45,20 @@ t_tree	*creatreeminos(void)
 	int		index;
 	char	**language;
 
-	language = creatlang();
 	if ((racine = creatree('#')) == NULL)
 		return (NULL);
+	language = creatlang();
 	index = 0;
 	while (language[index] != 0)
 	{
 		if (creatnoeud(&(racine->next), language[index]) == -1)
+		{
+			free(racine);
+			free(language);
 			return (NULL);
+		}
 		index++;
 	}
+	free(language);
 	return (racine);
 }

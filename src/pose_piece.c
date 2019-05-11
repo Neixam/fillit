@@ -14,7 +14,7 @@
 
 int		pose_piece_1(int *square, char **tab, int index, char *index_tab)
 {
-	if (ft_tabstrlen(tab) < 5)
+	if (ft_tabstrlen(tab) < 7)
 	{
 		if (pose_piece(square, tab, index, index_tab) == 1)
 			return (1);

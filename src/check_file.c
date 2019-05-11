@@ -46,13 +46,17 @@ int		check_ifvalid(char *tetri)
 	while (tetri[i])
 	{
 		if (tetri[i] == '.' || tetri[i] == '#' || tetri[i] == '\n')
+		{
 			if (tetri[i] == '#')
 				d++;
-		if (tetri[4] == '\n' && tetri[9] == '\n' && tetri[14] == '\n' &&
-			tetri[19] == '\n' && d == 4)
-			return (1);
+		}
+		else
+			return (-1);
 		i++;
 	}
+	if (tetri[4] == '\n' && tetri[9] == '\n' && tetri[14] == '\n' &&
+		tetri[19] == '\n' && d == 4)
+		return (1);
 	return (-1);
 }
 

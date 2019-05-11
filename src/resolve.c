@@ -89,16 +89,23 @@ int		resolve(int *square, char **tab, char *index_tab, int index_ref)
 int		start_resolve(char **tab)
 {
 	int		*square;
-	int		len_l;
 	char	*index_tab;
 
 	if ((square = gen_grid(tab)) == NULL)
+	{
+		free(square);
 		return (-1);
+	}
 	if ((index_tab = ft_creat_str_index(tab)) == NULL)
+	{
+		free(square);
+		free(index_tab);
 		return (-1);
-	len_l = ft_ilenl(square);
+	}
 	while (resolve(square, tab, index_tab, 0) == 0)
 		square = ft_ra(square);
 	ft_print(square);
+	free(square);
+	free(index_tab);
 	return (1);
 }
