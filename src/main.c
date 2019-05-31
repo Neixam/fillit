@@ -6,13 +6,12 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 11:23:45 by anboilea          #+#    #+#             */
-/*   Updated: 2019/05/31 21:00:36 by anboilea         ###   ########.fr       */
+/*   Updated: 2019/05/31 23:45:03 by anboilea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <fcntl.h>
-
 
 void	free_trash(char **tab)
 {
