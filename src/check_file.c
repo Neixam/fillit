@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 14:55:39 by anboilea          #+#    #+#             */
-/*   Updated: 2019/06/01 00:35:06 by abourenn         ###   ########.fr       */
+/*   Updated: 2019/06/01 01:32:25 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	**transform_tab(char **tab)
 		index_nt++;
 	}
 	new_tab[index_nt] = 0;
-	free(tab);
+	free_trash(tab);
 	return (new_tab);
 }
 
@@ -64,8 +64,12 @@ int		checkintree(t_tree *tr, char *wd)
 {
 	if (!(tr))
 		return (0);
-	if (*wd == '\0' && tr->letter == *wd)
-		return (1);
+	if (*wd == '\0')
+	{
+		if (tr->letter == '\0')
+			return (1);
+		return (0);
+	}
 	if (*wd != tr->letter)
 		if (!(tr->bro))
 			return (0);
