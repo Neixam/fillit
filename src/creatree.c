@@ -6,7 +6,7 @@
 /*   By: abourenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:01:08 by abourenn          #+#    #+#             */
-/*   Updated: 2019/05/13 14:31:22 by anboilea         ###   ########.fr       */
+/*   Updated: 2019/05/31 23:58:35 by anboilea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ t_tree	*creatreeminos(void)
 	t_tree	*racine;
 	int		index;
 	char	**language;
-	int 	i = 0;
+	int		i;
+
+	i = -1;
 	if ((racine = creatree('#')) == NULL)
 		return (NULL);
 	language = creatlang();
@@ -54,21 +56,15 @@ t_tree	*creatreeminos(void)
 		if (creatnoeud(&(racine->next), language[index]) == -1)
 		{
 			free(racine);
-			while (i <= 48)
-			{
+			while (i++ < 48)
 				free(language[i]);
-				i++;
-			}
 			free(language);
 			return (NULL);
 		}
 		index++;
 	}
-	while (i <= 48)
-	{
+	while (i++ < 48)
 		free(language[i]);
-		i++;
-	}
 	free(language);
 	return (racine);
 }
