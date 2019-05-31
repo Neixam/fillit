@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 15:32:53 by anboilea          #+#    #+#             */
-/*   Updated: 2019/03/02 13:48:35 by abourenn         ###   ########.fr       */
+/*   Updated: 2019/06/01 00:22:14 by anboilea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		*gen_grid(char **tab)
 		i++;
 	tmp = ft_sqrt(i * 4);
 	i = tmp * tmp + tmp;
-	if (!(grid = (int *)malloc(sizeof(int) * i + 1)))
+	if (!(grid = (int *)malloc(sizeof(int) * (i + 1))))
 		return (NULL);
 	grid[i] = -2;
 	grid = fill_grid(grid, tmp);
