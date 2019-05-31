@@ -6,11 +6,20 @@
 /*   By: abourenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 18:40:41 by abourenn          #+#    #+#             */
-/*   Updated: 2019/02/10 16:46:07 by abourenn         ###   ########.fr       */
+/*   Updated: 2019/06/01 00:06:11 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+void		free_tree(t_tree *tree)
+{
+	if (tree->bro != NULL)
+		free_tree(tree->bro);
+	if (tree->next != NULL)
+		free_tree(tree->next);
+	free(tree);
+}
 
 static char	**creatlang2(char **lang)
 {

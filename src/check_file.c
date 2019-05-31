@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 14:55:39 by anboilea          #+#    #+#             */
-/*   Updated: 2019/05/31 23:08:05 by abourenn         ###   ########.fr       */
+/*   Updated: 2019/06/01 00:06:34 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,19 +84,19 @@ int		check_tetri(char **tab)
 	{
 		if (i > 25 || tab[i] == NULL)
 		{
-			free(treeminos);
+			free_tree(treeminos);
 			return (-1);
 		}
 		if (tab[i + 1] != 0)
 			tab[i] = ft_strjoinfree(tab[i], "\n", 0);
 		if (check_ifvalid(tab[i]) == -1 || checkintree(treeminos, ft_strtrimc(tab[i], '.')) == 0)
 		{
-			free(treeminos);
+			free_tree(treeminos);
 			return (-1);
 		}
 		i++;
 	}
-	free(treeminos);
+	free_tree(treeminos);
 	return (1);
 }
 
