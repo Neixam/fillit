@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 14:55:39 by anboilea          #+#    #+#             */
-/*   Updated: 2019/03/02 13:46:37 by abourenn         ###   ########.fr       */
+/*   Updated: 2019/05/31 21:31:18 by anboilea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		check_ifvalid(char *tetri)
 		i++;
 	}
 	if (tetri[4] == '\n' && tetri[9] == '\n' && tetri[14] == '\n' &&
-		tetri[19] == '\n' && d == 4)
+			tetri[19] == '\n' && d == 4)
 		return (1);
 	return (-1);
 }
@@ -117,10 +117,13 @@ int		check_file(int fd, char ***tab)
 		i++;
 	}
 	if ((*tab = ft_strstrsplit(file, "\n\n")) == NULL)
+	{
+		free(file);
 		return (-1);
+	}
+		free(file);
 	if (check_tetri(*tab) == -1)
 		return (-1);
 	*tab = transform_tab(*tab);
-	free(file);
 	return (1);
 }
