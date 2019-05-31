@@ -6,7 +6,7 @@
 /*   By: abourenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 14:43:54 by abourenn          #+#    #+#             */
-/*   Updated: 2019/03/03 12:56:10 by abourenn         ###   ########.fr       */
+/*   Updated: 2019/05/31 23:09:04 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,6 @@ int		start_resolve(char **tab)
 		square = ft_ra(square);
 	ft_print(square);
 	free(square);
+	free(index_tab);
 	return (1);
 }

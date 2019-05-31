@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 14:24:28 by anboilea          #+#    #+#             */
-/*   Updated: 2019/03/03 13:38:40 by abourenn         ###   ########.fr       */
+/*   Updated: 2019/05/31 22:35:05 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FILLIT_H
 # include "libft.h"
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct	s_treeminos
 {

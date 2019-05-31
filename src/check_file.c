@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 14:55:39 by anboilea          #+#    #+#             */
-/*   Updated: 2019/05/31 21:31:18 by anboilea         ###   ########.fr       */
+/*   Updated: 2019/05/31 23:08:05 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,9 +121,12 @@ int		check_file(int fd, char ***tab)
 		free(file);
 		return (-1);
 	}
-		free(file);
 	if (check_tetri(*tab) == -1)
+	{
+		free(file);
 		return (-1);
+	}
 	*tab = transform_tab(*tab);
+	free(file);
 	return (1);
 }
