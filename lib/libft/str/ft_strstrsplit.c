@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 13:43:40 by anboilea          #+#    #+#             */
-/*   Updated: 2019/02/09 13:47:55 by anboilea         ###   ########.fr       */
+/*   Updated: 2019/05/31 20:56:10 by anboilea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char		**ft_strstrsplit(char *str, char *delims)
 	if ((str == NULL) || (ft_strcmp(str, delims) == 0))
 		return (NULL);
 	k = count_delims(str, delims);
-	if (!(tab = (char **)malloc(1 + (k * sizeof(char*)))))
+	if (!(tab = (char **)malloc((1 + k) * sizeof(char*))))
 		return (NULL);
 	tab[k] = 0;
 	while (j < k)

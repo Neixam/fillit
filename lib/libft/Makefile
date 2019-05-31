@@ -6,7 +6,7 @@
 #    By: anboilea <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/11 15:24:08 by anboilea          #+#    #+#              #
-#    Updated: 2018/11/18 13:41:57 by anboilea         ###   ########.fr        #
+#    Updated: 2019/05/31 20:32:38 by anboilea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,7 +108,7 @@ $(NAME): $(OBJ)
 	ar rc $@ $^
 
 %.o: %.c
-	gcc $(FLAGS) -o $@ -c $^ -I $(HEADER)
+	gcc $(FLAGS) -o $@ -c $^ -I $(HEADER) -g
 
 clean:
 	/bin/rm -rf $(OBJ)
