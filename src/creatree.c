@@ -6,7 +6,7 @@
 /*   By: abourenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:01:08 by abourenn          #+#    #+#             */
-/*   Updated: 2019/05/31 23:58:35 by anboilea         ###   ########.fr       */
+/*   Updated: 2019/06/01 05:04:58 by anboilea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,9 @@ int		creatnoeud(t_tree **treeminos, char *language)
 	return (creatnoeud(&(*treeminos)->next, language + 1));
 }
 
-t_tree	*creatreeminos(void)
+t_tree	*creatreeminos(int index)
 {
 	t_tree	*racine;
-	int		index;
 	char	**language;
 	int		i;
 
