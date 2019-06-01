@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 13:43:40 by anboilea          #+#    #+#             */
-/*   Updated: 2019/05/31 20:56:10 by anboilea         ###   ########.fr       */
+/*   Updated: 2019/06/01 06:32:19 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char		*ft_strfill(char *str, char *delims)
 				j++;
 			if (delims[j] == '\0')
 			{
-				if (!(ret = (char *)malloc(1 + (i * sizeof(char)))))
+				if (!(ret = (char *)malloc((1 + i) * sizeof(char))))
 					return (NULL);
 				ret[i] = '\0';
 				return (ft_strncpy(ret, str, i));
@@ -62,7 +62,7 @@ char		*ft_strfill(char *str, char *delims)
 		}
 		i++;
 	}
-	return (str);
+	return (ft_strdup(str));
 }
 
 char		**ft_strstrsplit(char *str, char *delims)

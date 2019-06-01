@@ -6,7 +6,7 @@
 #    By: anboilea <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/11 15:24:08 by anboilea          #+#    #+#              #
-#    Updated: 2019/06/01 04:59:22 by abourenn         ###   ########.fr        #
+#    Updated: 2019/06/01 06:02:23 by abourenn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,10 +46,10 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C $(LIB)libft
-	gcc $(FLAGS) $^ -o $(NAME) -I $(HEADER) $(LIB)libft/libft.a
+	gcc $(FLAGS) $^ -o $(NAME) -I $(HEADER) $(LIB)libft/libft.a -g
 
 %.o: %.c
-	gcc $(FLAGS) -o $@ -c $^ -I $(HEADER)
+	gcc $(FLAGS) -o $@ -c $^ -I $(HEADER) -g
 
 clean:
 	/bin/rm -rf $(OBJ)

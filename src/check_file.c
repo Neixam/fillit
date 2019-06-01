@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 14:55:39 by anboilea          #+#    #+#             */
-/*   Updated: 2019/06/01 05:57:50 by abourenn         ###   ########.fr       */
+/*   Updated: 2019/06/01 06:35:53 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	**transform_tab(char **tab)
 		index_nt++;
 	}
 	new_tab[index_nt] = 0;
-	free_trash(tab, 1);
+	free_trash(tab);
 	return (new_tab);
 }
 

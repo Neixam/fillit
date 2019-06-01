@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 14:24:28 by anboilea          #+#    #+#             */
-/*   Updated: 2019/06/01 05:13:06 by anboilea         ###   ########.fr       */
+/*   Updated: 2019/06/01 06:34:26 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char			*ft_strtrimc(char *str, char c);
 char			*ft_strjoinfree(char *s1, char *s2, int trool);
 char			**creatlang(void);
 int				free_tree(t_tree *tree);
-void			free_trash(char **tab, int boo);
+void			free_trash(char **tab);
 void			ft_print(int *fldgrd);
 void			ft_reinit_tab(int *tab);
 void			ft_print(int *fldgrd);

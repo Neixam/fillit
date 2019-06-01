@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 11:23:45 by anboilea          #+#    #+#             */
-/*   Updated: 2019/06/01 04:56:17 by abourenn         ###   ########.fr       */
+/*   Updated: 2019/06/01 06:35:13 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ int		ft_count_tabstr(char **tab)
 	return (count);
 }
 
-void	free_trash(char **tab, int boo)
+void	free_trash(char **tab)
 {
 	int i;
 	int len;
 
 	i = 0;
 	len = ft_count_tabstr(tab);
-	while (i < len - boo)
+	while (i < len)
 	{
 		free(tab[i]);
 		i++;
@@ -49,18 +49,18 @@ int		main(int argc, char **argv)
 		if (check_file(fd, &tab) == -1)
 		{
 			put_error();
-			free_trash(tab, 1);
+			free_trash(tab);
 			close(fd);
 			return (1);
 		}
 		if (start_resolve(tab) == -1)
 		{
-			free_trash(tab, 0);
+			free_trash(tab);
 			close(fd);
 			return (1);
 		}
 		if (tab)
-			free_trash(tab, 0);
+			free_trash(tab);
 	}
 	else
 		put_usage();
