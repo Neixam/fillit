@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 14:55:39 by anboilea          #+#    #+#             */
-/*   Updated: 2019/06/01 05:13:42 by anboilea         ###   ########.fr       */
+/*   Updated: 2019/06/01 05:57:50 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int		check_tetri(char **tab)
 		return (-1);
 	while (tab[i] != 0)
 	{
-		if ((i > 25 || tab[i] == NULL) && (free_tree(treeminos) == 1))
+		if ((i > 25 || tab[i] == NULL) && (free_tree(treeminos)))
 			return (-1);
 		if (tab[i + 1] != 0)
 			tab[i] = ft_strjoinfree(tab[i], "\n", 0);
@@ -122,13 +122,13 @@ int		check_file(int fd, char ***tab)
 		i++;
 	}
 	if ((*tab = ft_strstrsplit(file, "\n\n")) == NULL)
+		return (-1);
+	if (check_tetri(*tab) == -1)
 	{
 		free(file);
 		return (-1);
 	}
-	free(file);
-	if (check_tetri(*tab) == -1)
-		return (-1);
 	*tab = transform_tab(*tab);
+	free(file);
 	return (1);
 }
