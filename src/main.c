@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 11:23:45 by anboilea          #+#    #+#             */
-/*   Updated: 2019/05/31 23:45:03 by anboilea         ###   ########.fr       */
+/*   Updated: 2019/06/01 02:20:16 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	free_trash(char **tab)
 	int i;
 
 	i = 0;
-	while (tab[i + 1] != 0)
+	while (tab[i] != 0)
 	{
 		free(tab[i]);
 		i++;
@@ -43,9 +43,11 @@ int		main(int argc, char **argv)
 		}
 		if (start_resolve(tab) == -1)
 		{
+			free_trash(tab);
 			close(fd);
 			return (1);
 		}
+		free_trash(tab);
 	}
 	else
 		put_usage();

@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 18:09:22 by anboilea          #+#    #+#             */
-/*   Updated: 2019/03/02 13:48:55 by abourenn         ###   ########.fr       */
+/*   Updated: 2019/06/01 01:45:04 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ char	*ft_cut(char *str)
 	i = 0;
 	nb_char = (ft_max_h(str) - ft_min_h(str)) * (ft_max(str) -
 			ft_min(str) + 1) + (ft_max_h(str) - ft_min_h(str));
-	if (!(ret = (char *)malloc(sizeof(char) * nb_char + 1)))
+	if (!(ret = (char *)malloc(sizeof(char) * (nb_char + 1))))
 		return (NULL);
 	while (i < nb_char)
 	{

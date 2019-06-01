@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 15:32:53 by anboilea          #+#    #+#             */
-/*   Updated: 2019/06/01 00:22:14 by anboilea         ###   ########.fr       */
+/*   Updated: 2019/06/01 00:43:01 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		*fill_grid(int *grid, int n)
 	}
 	l = n;
 	grid[n] = -1;
-	while (l > 0)
+	while (l > 1)
 	{
 		n = n + tmp;
 		grid[n] = -1;
