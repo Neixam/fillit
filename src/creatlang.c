@@ -6,13 +6,13 @@
 /*   By: abourenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 18:40:41 by abourenn          #+#    #+#             */
-/*   Updated: 2019/06/01 05:15:50 by anboilea         ###   ########.fr       */
+/*   Updated: 2019/06/01 05:20:40 by anboilea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		free_tree(t_tree *tree)
+int			free_tree(t_tree *tree)
 {
 	if (tree->bro != NULL)
 		free_tree(tree->bro);
