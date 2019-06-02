@@ -19,12 +19,6 @@ int		*fill_grid(int *grid, int n)
 	int tmp;
 
 	tmp = n + 1;
-	l = 0;
-	while (grid[l] != -2)
-	{
-		grid[l] = 0;
-		l++;
-	}
 	l = n;
 	grid[n] = -1;
 	while (l > 1)
@@ -50,6 +44,7 @@ int		*gen_grid(char **tab)
 	if (!(grid = (int *)malloc(sizeof(int) * (i + 1))))
 		return (NULL);
 	grid[i] = -2;
+	grid = ft_int_init(grid, i, 0);
 	grid = fill_grid(grid, tmp);
 	return (grid);
 }

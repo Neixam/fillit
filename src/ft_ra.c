@@ -90,7 +90,7 @@ int		*ft_ra(int *grid)
 		width++;
 	width++;
 	n = (width + 1) * (width);
-	if (!(ret = (int *)malloc(sizeof(int) * n)))
+	if (!(ret = (int *)malloc(sizeof(int) * (n + 1))))
 		return (0);
 	ret = ft_int_init(ret, n, 0);
 	ret[n] = -2;
