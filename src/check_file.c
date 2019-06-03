@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 14:55:39 by anboilea          #+#    #+#             */
-/*   Updated: 2019/06/01 06:35:53 by abourenn         ###   ########.fr       */
+/*   Updated: 2019/06/03 14:18:53 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,9 @@ int		check_tetri(char **tab)
 
 int		check_file(int fd, char ***tab)
 {
-	int		i;
 	char	*line;
 	char	*file;
 
-	i = 0;
 	line = "";
 	if ((file = ft_strnew(0)) == NULL)
 		return (-1);
@@ -119,11 +117,14 @@ int		check_file(int fd, char ***tab)
 	{
 		file = ft_strjoinfree(file, line, 2);
 		file = ft_strjoinfree(file, "\n", 0);
-		i++;
 	}
-	if ((*tab = ft_strstrsplit(file, "\n\n")) == NULL)
+	if (ft_strstr(file, "\n\n\n"))
+	{
+		free(file);
 		return (-1);
-	if (check_tetri(*tab) == -1)
+	}
+	if ((*tab = ft_strstrsplit(file, "\n\n")) == NULL ||
+			check_tetri(*tab) == -1)
 	{
 		free(file);
 		return (-1);

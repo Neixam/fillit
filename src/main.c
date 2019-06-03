@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 11:23:45 by anboilea          #+#    #+#             */
-/*   Updated: 2019/06/01 06:35:13 by abourenn         ###   ########.fr       */
+/*   Updated: 2019/06/03 14:06:11 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int		main(int argc, char **argv)
 		if (check_file(fd, &tab) == -1)
 		{
 			put_error();
-			free_trash(tab);
+			if (tab)
+				free_trash(tab);
 			close(fd);
 			return (1);
 		}
@@ -59,8 +60,7 @@ int		main(int argc, char **argv)
 			close(fd);
 			return (1);
 		}
-		if (tab)
-			free_trash(tab);
+		free_trash(tab);
 	}
 	else
 		put_usage();

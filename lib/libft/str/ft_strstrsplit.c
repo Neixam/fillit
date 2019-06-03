@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 13:43:40 by anboilea          #+#    #+#             */
-/*   Updated: 2019/06/01 06:32:19 by abourenn         ###   ########.fr       */
+/*   Updated: 2019/06/03 13:51:47 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char		**ft_strstrsplit(char *str, char *delims)
 		tab[j] = ft_strfill(str + i, delims);
 		if (tab[j] == NULL)
 			return (NULL);
-		i = i + ft_strlen(tab[j]) + ft_strlen(delims);
+		i = i + ft_strlen(tab[j]) + 2;
 		j++;
 	}
 	return (tab);
