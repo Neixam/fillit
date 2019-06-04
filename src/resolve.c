@@ -42,6 +42,18 @@ int		pose_piece(int *square, char **tab, int index, char *index_tab)
 			index_tab[index] = '0';
 			if (resolve(square, tab, index_tab, index) == 1)
 				return (1);
+			while (square[index_sqr] != -1)
+			{
+				if (verif_place(square, tab[index], ft_ilenl(square), index_sqr) == 1)
+				{
+					insert_piece(square, tab[index], index + 1, index_sqr);
+					index_tab[index] = '0';
+					if (resolve(square, tab, index_tab, index) == 1)
+						return (1);
+				}
+				index_sqr++;
+			}
+			return (0);
 		}
 		index_sqr++;
 		if (square[index_sqr] == -1)
