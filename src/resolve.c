@@ -6,7 +6,7 @@
 /*   By: abourenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 14:43:54 by abourenn          #+#    #+#             */
-/*   Updated: 2019/06/06 01:42:02 by abourenn         ###   ########.fr       */
+/*   Updated: 2019/06/06 01:45:15 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int		pose_piece(int *square, char **tab, int index, char *index_tab)
 	}
 	return (0);
 }
-
 
 int		resolve(int *square, char **tab, char *index_tab, int index_ref)
 {
