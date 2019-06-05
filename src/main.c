@@ -6,22 +6,12 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 11:23:45 by anboilea          #+#    #+#             */
-/*   Updated: 2019/06/03 14:06:11 by abourenn         ###   ########.fr       */
+/*   Updated: 2019/06/05 22:48:04 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <fcntl.h>
-
-int		ft_count_tabstr(char **tab)
-{
-	int		count;
-
-	count = 0;
-	while (tab[count] != 0)
-		count++;
-	return (count);
-}
 
 void	free_trash(char **tab)
 {
@@ -29,7 +19,7 @@ void	free_trash(char **tab)
 	int len;
 
 	i = 0;
-	len = ft_count_tabstr(tab);
+	len = ft_tabstrlen(tab);
 	while (i < len)
 	{
 		free(tab[i]);

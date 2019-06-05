@@ -6,7 +6,7 @@
 /*   By: abourenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 14:43:54 by abourenn          #+#    #+#             */
-/*   Updated: 2019/05/31 23:21:05 by anboilea         ###   ########.fr       */
+/*   Updated: 2019/06/06 01:42:02 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,6 @@ int		pose_piece(int *square, char **tab, int index, char *index_tab)
 			index_tab[index] = '0';
 			if (resolve(square, tab, index_tab, index) == 1)
 				return (1);
-			while (square[index_sqr] != -1)
-			{
-				if (verif_place(square, tab[index], ft_ilenl(square), index_sqr) == 1)
-				{
-					insert_piece(square, tab[index], index + 1, index_sqr);
-					index_tab[index] = '0';
-					if (resolve(square, tab, index_tab, index) == 1)
-						return (1);
-				}
-				index_sqr++;
-			}
-			return (0);
 		}
 		index_sqr++;
 		if (square[index_sqr] == -1)
@@ -62,20 +50,6 @@ int		pose_piece(int *square, char **tab, int index, char *index_tab)
 	return (0);
 }
 
-int		pose_piece_2(int *square, char *tab, int nb_tetri, int index_sqr)
-{
-	int		len_l;
-
-	len_l = ft_ilenl(square);
-	if (ft_ilen(square) <= index_sqr)
-		return (0);
-	if (verif_place(square, tab, len_l, index_sqr) == 1)
-	{
-		insert_piece(square, tab, nb_tetri, index_sqr);
-		return (1);
-	}
-	return (pose_piece_2(square, tab, nb_tetri, index_sqr + 1));
-}
 
 int		resolve(int *square, char **tab, char *index_tab, int index_ref)
 {
@@ -88,8 +62,14 @@ int		resolve(int *square, char **tab, char *index_tab, int index_ref)
 	{
 		if (index_tab[index] == '1')
 		{
-			if (pose_piece_1(square, tab, index, index_tab) == 1)
+			if (pose_piece(square, tab, index, index_tab) == 1)
 				return (1);
+			if ((ft_strchr(index_tab, '0')))
+			{
+				ft_reinit_resolve(square, index_ref + 1);
+				index_tab[index_ref] = '1';
+				return (0);
+			}
 		}
 		index++;
 	}
