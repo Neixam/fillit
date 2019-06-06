@@ -6,7 +6,7 @@
 /*   By: anboilea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/27 15:51:37 by anboilea          #+#    #+#             */
-/*   Updated: 2018/12/29 15:06:54 by anboilea         ###   ########.fr       */
+/*   Updated: 2019/06/06 02:37:16 by abourenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,10 @@ int		get_next_line(const int fd, char **line)
 	{
 		more[fd][ret] = '\0';
 		if ((!(str = ft_strjoin_free(str, more[fd])) || ret == -1))
+		{
+			free(str);
 			return (-1);
+		}
 	}
 	if (ft_strlen(str) == 0)
 	{
